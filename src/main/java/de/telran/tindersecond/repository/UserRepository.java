@@ -27,8 +27,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT new User (player.id, player.name, player.rating, player.description) from User player WHERE player.description ILIKE %:description%") // JPQL
     List<User> getUsersByDescriptionContain(@Param(value = "description") String description);
 
+    // Задача 3.
     User findUserById(Long id);
 
+    // Задача 4. (2 уровень сложности)
     @Query(nativeQuery = true, value = "SELECT * FROM account OFFSET :page LIMIT :size")
     List<User> getAllUsers(Integer page, Integer size);
 
