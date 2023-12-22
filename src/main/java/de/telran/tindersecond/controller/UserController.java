@@ -25,7 +25,7 @@ public class UserController {
         return userService.getByName(name);
     }
 
-    @GetMapping(value = "/users-between/{min_rating}/{max_rating}")
+    @GetMapping(value = "/show-users-between/{min_rating}/{max_rating}")
     public List<User> getUsersRatingBetween(
             @PathVariable(value = "min_rating") Integer min_rating, @PathVariable(value = "max_rating") Integer max_rating) {
         return userService.getBetweenRating(min_rating, max_rating);
@@ -42,7 +42,7 @@ public class UserController {
         return userService.findUserContainingId(id);
     }
 
-    @GetMapping(value = "/show-all-users/{page}/{size}")
+    @GetMapping(value = "/show-users/{page}/{size}")
     public List<User> getAllUserWithPagination(@PathVariable(value = "page") Integer page, @PathVariable(value = "size") Integer size) {
         return userService.getAllUsers(page, size);
     }
