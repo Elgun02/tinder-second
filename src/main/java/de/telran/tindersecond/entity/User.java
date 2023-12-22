@@ -1,4 +1,4 @@
-package de.telran.tindersecond;
+package de.telran.tindersecond.entity;
 
 
 import jakarta.persistence.Column;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 //POJO - plain old java object - старый добрый джава объект
 @Entity //сущность jpa
-@Table(name = "account") //какая таблица
+@Table(name = "account") // какая таблица
 @Data //getter + setter + required args + to string + equals
 @AllArgsConstructor //конструктор со всеми полями
 @NoArgsConstructor
