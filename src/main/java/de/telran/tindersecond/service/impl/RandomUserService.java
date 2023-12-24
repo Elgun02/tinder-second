@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Random;
 
-@Service //то же, что и component, но более явно указывает, что это именно сервис
+@Service // Component, но более явно указывает, что это именно сервис
 @RequiredArgsConstructor
 public class RandomUserService implements UserService {
 

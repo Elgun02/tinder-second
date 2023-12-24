@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController //создается контроллер и управляется спрингом
+@RestController
 @RequiredArgsConstructor
 public class UserController {
 
@@ -42,7 +42,7 @@ public class UserController {
         return userService.findUserContainingId(id);
     }
 
-    @GetMapping(value = "/show-users/{page}/{size}")
+    @GetMapping(value = "/show-users/{page}/{size}") // тут надо указать 'page' - страницу, и 'size' количество объектов в странице, изначально надо указать 'size' и дальше изменять с 'page'
     public List<User> getAllUserWithPagination(@PathVariable(value = "page") Integer page, @PathVariable(value = "size") Integer size) {
         return userService.getAllUsers(page, size);
     }

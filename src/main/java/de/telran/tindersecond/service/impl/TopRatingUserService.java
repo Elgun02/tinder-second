@@ -1,6 +1,8 @@
 package de.telran.tindersecond.service.impl;
 
+import de.telran.tindersecond.entity.Photo;
 import de.telran.tindersecond.entity.User;
+import de.telran.tindersecond.repository.PhotoRepository;
 import de.telran.tindersecond.repository.UserRepository;
 import de.telran.tindersecond.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +17,7 @@ import java.util.List;
 public class TopRatingUserService implements UserService {
 
     private final UserRepository userRepository;
-//    private final PhotoRepository photoRepository;
+    private final PhotoRepository photoRepository;
 
     @Override
     public User getNewUser() {
@@ -37,11 +39,13 @@ public class TopRatingUserService implements UserService {
     @Override
     public List<User> getByName(String name) {
         List<User> users = userRepository.getUsersByNameStartingWithIgnoreCase(name);
-//        List<Photo> photos = photoRepository.findAll();
-//        System.out.println(photos);
+        List<Photo> photos = photoRepository.findAll();
+        System.out.println(photos);
         return users;
     }
 
+    // Homework
+    // Задача 1.
     @Override
     public List<User> getBetweenRating(int minRating, int maxRating) {
         List<User> users = userRepository.getUsersBetweenRating(minRating, maxRating);
@@ -56,6 +60,7 @@ public class TopRatingUserService implements UserService {
         return users;
     }
 
+    // Задача 2.
     @Override
     public List<User> getByDescriptionContaining(String value) {
         List<User> users = userRepository.getUsersByDescriptionContain(value);
@@ -70,6 +75,7 @@ public class TopRatingUserService implements UserService {
         return users;
     }
 
+    // Задача 3.
     @Override
     public Boolean findUserContainingId(Long id) {
         User user = userRepository.findUserById(id);
@@ -81,6 +87,7 @@ public class TopRatingUserService implements UserService {
         return false;
     }
 
+    // Задача 4. (2 уровень сложности)
     @Override
     public List<User> getAllUsers(Integer page, Integer size) {
 

@@ -19,6 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM account WHERE name LIKE :name%") // SQL
     List<User> findAutocomplete2(@Param(value = "name") String name);
 
+    // Homework
     // Задача 1.
     @Query(nativeQuery = true, value = "SELECT * FROM account WHERE rating BETWEEN :minRating AND :maxRating") // SQL
     List<User> getUsersBetweenRating(@Param(value = "minRating") Integer minRating, @Param(value = "maxRating") Integer maxRating);

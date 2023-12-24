@@ -9,16 +9,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//POJO - plain old java object - старый добрый джава объект
-@Entity //сущность jpa
-@Table(name = "account") // какая таблица
-@Data //getter + setter + required args + to string + equals
-@AllArgsConstructor //конструктор со всеми полями
-@NoArgsConstructor
+//POJO - Plain Old Java Object - Старый добрый джава объект
+@Entity                  // Сущность JPA
+@Table(name = "account") // Название таблицы
+@Data                    // Getter + Setter + Required args + ToString + Equals
+@AllArgsConstructor      // Конструктор со всеми полями
+@NoArgsConstructor       // Коснтруктор без полей
 public class User {
 
-    @Id //поле уникальности + pk
-    @Column(name = "id") //именование столбца в бд
+    @Id                  // Поле уникальности + Primary Key
+    @Column(name = "id") // Именование столбца в бд
     private Long id;
 
     @Column(name = "name")
